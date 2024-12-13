@@ -1,0 +1,13 @@
+clc;
+clear;
+initilization();
+load('../data/par.mat');
+Q0 = diag([15, 1000, 448, 999, 999, 999, 999, 778, 778, 778, 778]);
+r = diag([8.54e-5, 8.54e-5, 8.54e-5, 8.54e-5]);
+[K1, K2] = calculate_lqr(Q0, r, A, B, E, C, D, H);
+get_passive_suspension_data();
+narx_data_get();
+narx_effect();
+control_effect();
+pso_effect();
+plot_();
