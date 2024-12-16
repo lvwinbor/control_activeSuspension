@@ -92,7 +92,7 @@ set(gca, 'xlim', [0.5, 3.5]);
 set(gca, 'FontSize', FontSize);
 set(gcf, 'unit', 'centimeters', 'position', position);
 set(gca, 'LooseInset', get(gca, 'TightInset')); % 坐标区充满图窗
-saveas(gcf, '../picture/不同悬架前三个性能均方根值.emf');
+saveas(gcf, '../picture/两种悬架前三个性能均方根值.emf');
 
 figure(2);
 plot(4:11, control.rms_Y(4:11), '-o', 'LineWidth', LineWidth, 'Color', myColor{3});
@@ -112,7 +112,7 @@ set(gca, 'xlim', [3.5, 11.5]);
 set(gca, 'FontSize', FontSize);
 set(gcf, 'unit', 'centimeters', 'position', position);
 set(gca, 'LooseInset', get(gca, 'TightInset')); % 坐标区充满图窗
-saveas(gcf, '../picture/不同悬架后八个性能均方根值.emf');
+saveas(gcf, '../picture/两种悬架后八个性能均方根值.emf');
 
 figure(3);
 plot(control.time, control.u(:, 1), '-', 'LineWidth', LineWidth, 'Color', myColor{1});

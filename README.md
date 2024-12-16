@@ -1,3 +1,10 @@
+<!--
+ * @Author: Wenbo Lv && wb.lv@qq.com
+ * @Date: 2024-12-10
+ * @LastEditors: Wenbo Lv && wb.lv@qq.com
+ * @LastEditTime: 2024-12-10
+ * 
+-->
 此项目是七自由度电磁线控悬架的仿真模型
 # 文件说明
 
