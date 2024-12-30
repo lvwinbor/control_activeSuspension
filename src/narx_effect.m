@@ -1,5 +1,7 @@
 function [] = narx_effect()
 options = simset('Solver', 'ode4', 'FixedStep', '0.005');
+Simulink.fileGenControl('set', ...
+    'CacheFolder', '../build');
 out = sim('../model/active_with_narx.slx', [0, 40], options);
 time = out.qt1.Time(6001:8001); % 时间
 real_road = out.qt1.Data(6001:8001); % 真实路面

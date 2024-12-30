@@ -1,9 +1,13 @@
 function [] = control_effect()
 options = simset('Solver', 'ode4', 'FixedStep', '0.005');
+load_system('../model/active_with_narx_and_can.slx');
 set_param('active_with_narx_and_can', 'SimulationMode', 'normal');
 set_param('active_with_narx_and_can', 'EnablePacing', 'on');
 set_param('active_with_narx_and_can', 'PacingRate', '1');
+Simulink.fileGenControl('set', ...
+    'CacheFolder', '../build');
 out = sim('../model/active_with_narx_and_can.slx', [0, 40], options);
+close_system('active_with_narx_and_can', 0);
 Y = out.Y.Data;
 Y = permute(Y, [3, 1, 2]); % 将维度从 [11x1x8001] 变为 [8001x11x1]
 Y = squeeze(Y); % 去掉单一维度，变为 [8001x11]

@@ -7,6 +7,8 @@ r = diag([8.54e-5, 8.54e-5, 8.54e-5, 8.54e-5]);
 options = simset('Solver', 'ode4', 'FixedStep', '0.005');
 assignin('base', 'K1', K1);
 assignin('base', 'K2', K2);
+Simulink.fileGenControl('set', ...
+    'CacheFolder', '../build');
 out = sim('../model/active.slx', [0, 40], options);
 Y = out.Y.Data;
 Y = permute(Y, [3, 1, 2]); % 将维度从 [11x1x8001] 变为 [8001x11x1]

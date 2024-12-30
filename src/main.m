@@ -1,5 +1,6 @@
 clc;
 clear;
+bdclose all; % 关闭所有打开的模型
 initilization();
 load('../data/par.mat');
 Q0 = diag([15, 1000, 448, 999, 999, 999, 999, 778, 778, 778, 778]);

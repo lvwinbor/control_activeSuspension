@@ -9,6 +9,8 @@ try %% simulink仿真异常，返回一个极大值
     [K1, K2] = calculate_lqr(Q0, r, A, B, E, C, D, H);
     assignin('base', 'K1', K1);
     assignin('base', 'K2', K2);
+    Simulink.fileGenControl('set', ...
+        'CacheFolder', '../build');
     out = sim('../model/active.slx', [0, 40], options);
     Y = out.Y.Data;
     Y = permute(Y, [3, 1, 2]); % 将维度从 [11x1x8001] 变为 [8001x11x1]
