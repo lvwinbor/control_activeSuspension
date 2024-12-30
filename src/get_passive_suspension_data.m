@@ -1,5 +1,6 @@
 function [] = get_passive_suspension_data()
-
+Simulink.fileGenControl('set', ...
+    'CacheFolder', '../build');
 options = simset('Solver', 'ode4', 'FixedStep', '0.005');
 out = sim('../model/passive.slx', [0, 40], options);
 Y_passive = out.Y.Data;

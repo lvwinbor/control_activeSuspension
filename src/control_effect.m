@@ -1,8 +1,11 @@
 function [] = control_effect()
+load_system('../model/active_with_narx_and_can.slx');
 options = simset('Solver', 'ode4', 'FixedStep', '0.005');
 set_param('active_with_narx_and_can', 'SimulationMode', 'normal');
 set_param('active_with_narx_and_can', 'EnablePacing', 'on');
 set_param('active_with_narx_and_can', 'PacingRate', '1');
+Simulink.fileGenControl('set', ...
+    'CacheFolder', '../build');
 out = sim('../model/active_with_narx_and_can.slx', [0, 40], options);
 Y = out.Y.Data;
 Y = permute(Y, [3, 1, 2]); % 将维度从 [11x1x8001] 变为 [8001x11x1]

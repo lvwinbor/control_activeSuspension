@@ -1,6 +1,8 @@
 function [] = narx_data_get()
 
 options = simset('Solver', 'ode4', 'FixedStep', '0.005');
+Simulink.fileGenControl('set', ...
+    'CacheFolder', '../build');
 out = sim('../model/active.slx', [0, 30], options);
 for i = 1:21
     field_name = sprintf('x%d', i);
