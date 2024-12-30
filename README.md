@@ -1,10 +1,4 @@
-<!--
- * @Author: Wenbo Lv && wb.lv@qq.com
- * @Date: 2024-12-10
- * @LastEditors: Wenbo Lv && wb.lv@qq.com
- * @LastEditTime: 2024-12-10
- * 
--->
+
 # 基于CAN总线的主动悬架最优控制策略研究
 
 # 使用说明
